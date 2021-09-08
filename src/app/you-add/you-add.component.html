@@ -1,0 +1,71 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <!-- <a class="p-2 link-secondary" href="/actors/all">Actors</a> -->
+      <a class="p-2 link-secondary" href="/">Home</a>
+      <a class="p-2 link-secondary" href="/you">Back to Videos</a>
+      <!-- <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="myForm">
+        <h2>Add Movie</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="company">Video URL</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder=""
+                name="video"
+                formControlName="video"
+              />
+            </div>
+          </div>
+          <!--  col-md-6   -->
+
+          <!--  col-md-6   -->
+        </div>
+      </form>
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <label class="form-check-label">Categories</label>
+              <ng-multiselect-dropdown
+            [placeholder]="'Select Categories'"
+            [settings]="categorySettings"
+            [data]="categories"
+            [(ngModel)]="selectedCategories"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+            >
+            </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="margin-top: 10px;">
+            <button type="button" class="btn btn-primary" (click)="addJSON()">Add Data</button>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>

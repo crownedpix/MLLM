@@ -1,0 +1,175 @@
+{
+  "male": [
+    {
+      "id": "1m",
+      "name": "MAmos Burton",
+      "img": "",
+      "sex": "M",
+      "eyeColor": "black",
+      "hairColor": "Black",
+      "size": "huge",
+      "Height": "157cm(5.2)",
+      "weight": "72kg",
+      "BMI": "Normal",
+      "waist": "NA",
+      "mod": "Real",
+      "ethinicity": "causian(white)",
+      "country": "",
+      "startYear":"",
+      "DOB":""
+    }
+  ],
+  "female": [
+    {
+      "id": "1f",
+      "name": "Kayla kayden",
+      "img": "act/kayla.jpg",
+      "sex": "F",
+      "eyeColor": "blue",
+      "hairColor": "blonde",
+      "size": "huge",
+      "Height": "157cm(5.2)",
+      "weight": "45kg",
+      "BMI": "Atheletic",
+      "waist": "normal",
+      "mod": "Fake",
+      "ethinicity": "causian(white)",
+      "country": "US",
+      "cups": "DD",
+      "startYear":"",
+      "DOB":""
+    },
+    {
+      "id": "2f",
+      "name": "Sasha Grey",
+      "img": "act/sasha_grey.jpg",
+      "sex": "F",
+      "eyeColor": "brown",
+      "hairColor": "brown",
+      "size": "normal",
+      "Height": "157cm(5.2)",
+      "weight": "50kg",
+      "BMI": "petite",
+      "waist": "Slim",
+      "mod": "Real",
+      "ethinicity": "causian(white)",
+      "country": "US",
+      "cups": "B",
+      "startYear":"",
+      "DOB":""
+    },
+    {
+      "id": "3f",
+      "name": "Sherill Colins",
+      "img": "act/sherill-collins.jpg",
+      "sex": "F",
+      "eyeColor": "black",
+      "hairColor": "black",
+      "size": "big",
+      "Height": "157cm(5.2)",
+      "weight": "50kg",
+      "BMI": "volumptus",
+      "waist": "volumptus",
+      "mod": "Real",
+      "ethinicity": "causian(white)",
+      "country": "US",
+      "cups": "B",
+      "startYear":"",
+      "DOB":""
+    },
+    {
+      "id": "4f",
+      "name": "Bailey Base",
+      "img": "act/740full-bailey-base.jpg",
+      "sex": "F",
+      "eyeColor": "brown",
+      "hairColor": "brown",
+      "size": "normal",
+      "Height": "157cm(5.2)",
+      "weight": "50kg",
+      "BMI": "volumptus",
+      "waist": "volumptus",
+      "mod": "Real",
+      "ethinicity": "causian(white)",
+      "country": "US",
+      "cups": "B",
+      "startYear":"",
+      "DOB":""
+    },
+    {
+      "id": "5f",
+      "name": "Canela Skin",
+      "img": "act/canela_skin.jpg",
+      "sex": "F",
+      "eyeColor": "brown",
+      "hairColor": "brown",
+      "size": "Big",
+      "Height": "157cm(5.2)",
+      "weight": "50kg",
+      "BMI": "Slim",
+      "waist": "Slim",
+      "mod": "Real",
+      "ethinicity": "Black",
+      "country": "US",
+      "cups": "DD",
+      "startYear":"",
+      "DOB":""
+    }
+  ],
+  "BMI": [
+    {
+      "type": "petite"
+    },
+    {
+      "type": "atheletic"
+    },
+    {
+      "type": "volumptus"
+    },
+    {
+      "type": "fat"
+    }
+  ],
+  "mod": [
+    {
+      "type": "real"
+    },
+    {
+      "type": "fake"
+    },
+    {
+      "type": "medicated"
+    }
+  ],
+  "ethinicity": [
+    {
+      "type": "asian"
+    },
+    {
+      "type": "black"
+    },
+    {
+      "type": "latin"
+    },
+    {
+      "type": "causian(white)"
+    }
+  ],
+  "size": [
+    {
+      "type": "small"
+    },
+    {
+      "type": "normal"
+    },
+    {
+      "type": "big"
+    },
+    {
+      "type": "huge"
+    },
+    {
+      "type": "huge+"
+    }
+  ]
+}

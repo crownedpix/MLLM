@@ -1,0 +1,101 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/spl">Home</a>
+      <a class="p-2 link-secondary" href="/spl">S Home</a>
+      <a class="p-2 link-secondary" href="/actors/all/1">All</a>
+      <a class="p-2 link-secondary" href="/actors/female/1">Female</a>
+      <a class="p-2 link-secondary" href="/actors/male/1">Male</a>
+      <a class="p-2 link-secondary" href="/addactor">Add More</a>
+
+      <!-- <a class="p-2 link-secondary" href="/add">Add Movies</a>
+      <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<div id="rs-team" class="rs-team fullwidth-team pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">Search</div>
+      <div class="col-md-10 searchInput">
+        <input type="text" [(ngModel)]="searchText" />
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-lg-2 col-md-6"
+        *ngFor="
+          let movie of finalSet
+            | filterData: [searchText, 'name']
+            | paginate: { itemsPerPage: totalItems, currentPage: p }
+        "
+      >
+        <div class="team-item">
+
+          <div
+            class="team-img"
+            style="background-image: url({{hostIP}}:8080/{{ movie.img }})"
+          >
+          <div class="ribbon-wrapper" *ngIf="movie.sex == 'F'">
+            <div class="ribbon" [ngClass]="{'active': movie.cream != 0}" *ngIf="movie.count != 0">{{ movie.count }}</div>
+          </div>
+            <!-- <span class="heartBG"><span class="heart" *ngIf="movie.sex == 'F'"></span> {{ movie.count }}</span> -->
+            <div class="normal-text">
+              <h4 class="team-name">{{ movie.name }}</h4>
+              <span class="subtitle"
+                ><em  *ngIf="movie.BMI">{{ movie.BMI }} ,</em>
+                <span *ngIf="movie.sex == 'F'">
+
+                  <em *ngIf="movie.mod"> Size: {{ movie.mod }}</em><em *ngIf="movie.size"> and {{ movie.size }} bust</em></span
+                >
+                <span *ngIf="movie.sex == 'M'"
+                  >Hair {{ movie.hairColor }} , Height {{ movie.Height }},
+                  {{ movie.size }}, {{ movie.mod }}</span
+                >
+              </span>
+            </div>
+          </div>
+          <div class="team-content">
+            <div class="display-table">
+              <div class="display-table-cell">
+                <div class="team-details">
+                  <h4 class="team-name">
+                    <a href="/iact/{{ movie.id }}">{{ movie.name }}</a>
+                    <p class="capital">{{ movie.BMI }}</p>
+                  </h4>
+                  <span class="postion"
+                    ><span *ngIf="movie.sex == 'F'"
+                      ><em  *ngIf="movie.BMI">{{ movie.BMI }}, </em> <em *ngIf="movie.hairColor">Hair {{ movie.hairColor }},</em> <em *ngIf="movie.Height"> Height {{ movie.Height }}, </em> <em *ngIf="movie.cups"> Size
+                        {{ movie.cups }}, </em> <em *ngIf="movie.mod"> {{ movie.mod }} </em><em *ngIf="movie.size"> and {{ movie.size }} bust</em> </span
+                    >
+                    <p *ngIf="movie.cream !=0" class="crmp"><em> Has {{ movie.cream }} Creamiepie</em></p>
+                    <span *ngIf="movie.sex == 'M'"
+                      >Hair {{ movie.hairColor }} , {{ movie.size }},
+                      {{ movie.mod }}</span
+                    >
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <!-- .container-fullwidth -->
+</div>

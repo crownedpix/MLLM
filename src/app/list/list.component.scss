@@ -1,0 +1,42 @@
+.d-lg-block{
+  height: 300px;
+  // filter: invert(100%);
+}
+
+.d-lg-block:before{
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 999;
+  // background-color: rgba(14, 13, 13, 0.7);
+  content: "";
+  display: block;
+
+}
+.h-md-250 .d-lg-block .overlay{
+  position: absolute;
+  bottom: -22px;
+  right: 0;
+  opacity: 0.0;
+  width: 50%;
+  height: auto;
+}
+.h-md-250 .d-lg-block:hover .overlay{
+  opacity: 0;
+  animation-name: saturateIn;
+  animation-duration: 2s;
+}
+.mb-0 a{
+  text-decoration: none;
+  color: rgb(161, 47, 172);
+}
+.mb-0 a:hover{
+  text-decoration: underline;
+}
+
+.h-md-250{
+  animation-name: moveInTop;
+  backface-visibility: hidden;
+  animation-duration: 2s;
+}
+

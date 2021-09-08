@@ -1,0 +1,137 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/actors/all/1">Actors</a>
+      <a class="p-2 link-secondary" href="/">Home</a>
+      <a class="p-2 link-secondary" href="/spl">Spl Home</a>
+      <a class="p-2 link-secondary" href="/add">Add Movies</a>
+      <!-- <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- <div class="card-body">
+                <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+            </div> -->
+        <div class="table-responsive">
+          <table class="table no-wrap user-table mb-0">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="border-0 text-uppercase font-medium pl-4"
+                >
+                  #
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Image
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Name
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Group
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Female
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Male
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Crm
+                </th>
+                <th
+                  scope="col"
+                  class="border-0 text-uppercase font-medium"
+                  width="300"
+                >
+                  Category
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of list | paginate: { itemsPerPage: totalItems, currentPage: p }" [ngClass]="{'active': movie.cream == 'true'}">
+                <td class="pl-4">{{ movie.id }}</td>
+                <td>
+                  <img
+                    class="img-fluid"
+                    src="{{hostIP}}:8080/vids/{{ movie.url[0] }}"
+                    width="150px"
+                    alt="{{ movie.cream }}"
+                  />
+                </td>
+                <td>
+                  <h5 class="font-medium mb-0">{{ movie.name }}</h5>
+                  <span class="text-muted">{{ movie.type }}</span>
+                  <p class="spCate" *ngIf="movie.star"><img src="assets/images/lady.png" width="80" /></p>
+                </td>
+                <td>
+                  <img src="{{hostIP}}:8080/cats/{{getGroup(movie)}}" width="80px" alt="" />
+                </td>
+                <td>
+                  <a
+                    class="text-muted display-block"
+                    *ngFor="let actor of movie.actors.female"
+                    href="/iact/{{ actor.id }}"
+                    >{{ actor.name }}</a
+                  >
+                </td>
+                <td>
+                  <a
+                    class="text-muted display-block"
+                    *ngFor="let actor of movie.actors.male"
+                    href="/iact/{{ actor.id }}"
+                    >{{ actor.name }}</a
+                  >
+                </td>
+                <td>
+                  <span class="text-muted" *ngIf="movie.cream == 'false'"
+                    >No</span
+                  >
+                  <span class="text-muted" *ngIf="movie.cream == 'true'"
+                    >{{ movie.creamtime }} Times</span
+                  >
+                </td>
+                <td>
+                  <a
+                    class="category"
+                    *ngFor="let cat of movie.category"
+                    href="/movies/{{ cat.id }}/1"
+                    >{{ cat.name }}</a
+                  >
+                </td>
+                <td>
+                  <a href="/imov/{{ movie.id }}"><i class="fa fa-eye"></i> </a
+                  >&nbsp;
+                  <!-- <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/actors/all/1">Actors</a>
+      <a class="p-2 link-secondary" href="/spl">Home</a>
+      <a class="p-2 link-secondary" href="/movies/all/1">Movies</a>
+      <!-- <a class="p-2 link-secondary" href="#">Categories</a>
+      <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<!-- Page Content -->
+<div class="container">
+  <!-- Portfolio Item Row -->
+  <div class="row">
+    <div class="col-md-9 descBlock">
+      <p class="spCate" *ngIf="movie[0].star"><img src="assets/images/lady.png" width="80" /></p>
+      <div *ngIf="movie[0].video != ''" id="instructions" style="background-color: black">
+        <video
+          id="my_video_1"
+          class="video-js vjs-default-skin"
+          width="100%"
+          height="600px"
+          controls
+          preload="true"
+        >
+          <source
+            src="{{hostIP}}:8080/vids/{{ movie[0].video }}"
+            type="video/mp4"
+          />
+        </video>
+        <!-- <button (click)="playPause()" class="play bttn">P/P</button>
+        <button (click)="makeBig()">Big</button>
+        <button (click)="makeSmall()">Small</button>
+        <button (click)="makeNormal()">Normal</button> -->
+        <nav class="d-flex justify-content-between">
+          <div style="width: 100%; text-align: center">
+            <button (click)="skip(-10)" class="play back">
+              <<
+            </button>
+            <button (click)="restart()" class="play restart">
+               |<
+            </button>
+            <button (click)="skip(10)" class="play FF">
+              >>
+            </button>
+            <button (click)="makeDark(bgCase)" class="play FF">
+              {{butTxt}}
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="col-md-3 " style="overflow: auto; height: 600px">
+
+      <h3>{{ movie[0].name }}</h3>
+      <p>Description: {{ movie[0].desc }}</p>
+      <p *ngIf="movie[0].cream == 'true'" class="love">True Love Making</p>
+      <div class="actors row">
+        <hr />
+        <div class="col-md-4" *ngFor="let factor of movie[0].actors.female">
+          <a
+          class="text-muted display-block"
+          href="/iact/{{ factor.id }}"
+          >
+          <img class="img-flexible" src="{{hostIP}}:8080/{{getImg(factor.id)}}" width="100%">
+          <p>{{getName(factor.id)}}</p>
+          </a>
+        </div>
+        <hr />
+        <div class="col-md-4" *ngFor="let mactor of movie[0].actors.male">
+          <a
+          class="text-muted display-block"
+          href="/iact/{{ mactor.id }}"
+          >
+          <img class="img-flexible" src="{{hostIP}}:8080/{{getImg(mactor.id)}}" width="100%">
+        <p>{{getName(mactor.id)}}</p>
+        </a>
+      </div>
+        <hr />
+      </div>
+      <fieldset class="field_set">
+        <legend>Finale:</legend>
+        <span class="text-muted" *ngIf="movie[0].cream == 'false'">No</span>
+        <span class="text-muted" *ngIf="movie[0].cream == 'true'"
+          >{{ movie[0].creamtime }} Times</span
+        >
+      </fieldset>
+      <fieldset class="field_set">
+        <legend>Categories:</legend>
+        <a
+          class="category"
+          *ngFor="let cat of movie[0].category"
+          href="/movies/{{ cat.id }}/1"
+          >{{ cat.name }}</a
+        >
+      </fieldset>
+      <div class="">
+        <div class="row thumbs">
+          <div class="col-md-6" *ngFor="let thumb of movie[0].url; let i = index" (click)="loadPopup(i)">
+            <img
+              class="img-fluid"
+              src="{{hostIP}}:8080/vids/{{ thumb }}"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  <h3 class="my-4">Related <button style="float: right;" (click)="reloadRelated()">Refresh</button></h3>
+  <div class="row"  style="height: 300px;">
+    <div class="col-md-4 col-sm-6 mb-4 related descBlock" *ngFor="let rel of urelates | slice:0:3" >
+      <p class="spCate" *ngIf="rel.star"><img src="assets/images/lady.png" width="60" /></p>
+      <a href="/imov/{{rel.id}}">
+        <img class="img-fluid" src="{{hostIP}}:8080/vids/{{rel.url[0]}}" alt="" />
+        <h3 [ngClass]="{'active': rel.cream == 'true'}">{{rel.name}} <span *ngIf="rel.cream == 'true'"> - Impregnated</span></h3>
+      </a>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+
+<div class="overParent" *ngIf="showPopup">
+  <div class="overLaybox">
+    <h3>{{title}} --- Intimate Moments</h3>
+    <span (click)="closePopup()" class="close">X</span>
+    <img src="{{hostIP}}:8080/vids/{{currImg}}" width="100%"  >
+  </div>
+</div>

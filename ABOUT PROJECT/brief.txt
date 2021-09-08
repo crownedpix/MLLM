@@ -1,0 +1,3 @@
+This is an Angular Application which runs pure angular code.
+This application has an NodeJs server to save JSON files.
+you need to run both Servers to make the complate project work.

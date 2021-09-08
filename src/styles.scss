@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #ffffff;
+  color:#000000;
+  font-family: 'Courgette', cursive;
+}
+*{
+  font-family: 'Courgette', cursive;
+
+}
+.specific-class{
+  background-color:#000000 !important;
+  color:  #ffffff !important;
+}
+
+
+@keyframes moveInBottom{
+  0%{
+    opacity:0;
+    transform: translateY(-100px);
+  }
+  80%{
+    transform: translateY(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInTop{
+  0%{
+    opacity:0;
+    transform: translateY(100px);
+  }
+  80%{
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInLeft{
+  0%{
+    opacity:0;
+    transform: translateX(-100px) translateY(-100px);
+
+  }
+  80%{
+    transform: translateX(10px) translateY(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes saturateIn{
+  0%{
+    opacity:0;
+    filter:saturate(100%);
+  }
+  60%{
+    opacity:1;
+    filter:saturate(0%);
+  }
+  80%{
+    opacity: 1;
+    filter:saturate(0%);
+  }
+  100%{
+    opacity:0;
+  }
+}

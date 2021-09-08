@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/actors/all/1">Actors</a>
+      <a class="p-2 link-secondary" href="/movies/all/1">Movies</a>
+      <a class="p-2 link-secondary" href="/add">Add Movies</a>
+      <!-- <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<main class="container">
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Lucky one</strong>
+          <h3 class="mb-0">{{ actorA.name }}</h3>
+          <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+          <p class="card-text mb-auto">
+            <em  *ngIf="actorA.BMI">{{ actorA.BMI }}, </em> <em *ngIf="actorA.hairColor">Hair: {{ actorA.hairColor }},</em> <em *ngIf="actorA.Height"> Height: {{ actorA.Height }}, </em> <em *ngIf="actorA.cups"> Size
+              {{ actorA.cups }}, </em> <em *ngIf="actorA.mod"> {{ actorA.mod }} </em><em *ngIf="actorA.size"> and {{ actorA.size }} bust</em><br />
+          </p>
+          <p *ngIf="actorA.cream!='0'" class="crmp"><em> Had {{ actorA.cream }} Pies</em></p>
+          <p class="mb-auto">Total Movies: {{ actorA.count }}</p>
+          <p>
+            <a href="/iact/{{ actorA.id }}" class="btns btn-animated">View</a>
+          </p>
+          <!-- <a href="#" class="stretched-link">Continue reading</a> -->
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="bd-placeholder-img"
+            src="{{hostIP}}:8080/{{ actorA.img }}"
+            height="300"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Lucky two</strong>
+          <h3 class="mb-0">{{ actorB.name }}</h3>
+          <!-- <div class="mb-1 text-muted">Nov 11</div> -->
+          <p class="mb-auto">
+            <em  *ngIf="actorB.BMI">{{ actorB.BMI }} ,</em> <em *ngIf="actorB.hairColor">Hair {{ actorB.hairColor }},</em> <em *ngIf="actorB.Height"> Height {{ actorB.Height }}, </em> <em *ngIf="actorB.cups"> Size
+              {{ actorB.cups }}, </em> <em *ngIf="actorB.mod"> {{ actorB.mod }} </em><em *ngIf="actorB.size"> and {{ actorB.size }} bust</em> <br />
+          </p>
+          <p *ngIf="actorB.cream!='0'" class="crmp"><em> Had {{ actorB.cream }} Pies</em></p>
+          <p class="mb-auto">Total Movies: {{ actorB.count }}</p>
+          <p>
+            <a href="/iact/{{ actorB.id }}"  class="btns btn-animated">View</a>
+          </p>
+          <!-- <a href="#" class="stretched-link">Continue reading</a> -->
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="bd-placeholder-img"
+            src="{{hostIP}}:8080/{{ actorB.img }}"
+            height="300"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<link
+  rel="stylesheet"
+  href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+/>
+<div class="container" style="padding-top: 40px">
+  <div class="row">
+    <br />
+    <div class="col text-center">
+      <h2>Special count</h2>
+      <p style="height: 50px"></p>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col">
+      <div class="counter">
+        <!-- <i class="fa fa-code fa-2x"></i> -->
+        <h2
+          class="timer count-title count-number"
+          data-to="100"
+          data-speed="1500"
+        >
+          {{ actors.female.length }}
+        </h2>
+        <p class="count-text">Females</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="counter">
+        <!-- <i class="fa fa-coffee fa-2x"></i> -->
+        <h2
+          class="timer count-title count-number"
+          data-to="1700"
+          data-speed="1500"
+        >
+          {{ actors.male.length }}
+        </h2>
+        <p class="count-text">Males</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="counter">
+        <!-- <i class="fa fa-lightbulb-o fa-2x"></i> -->
+        <h2
+          class="timer count-title count-number"
+          data-to="11900"
+          data-speed="1500"
+        >
+          {{ movies.length }}
+        </h2>
+        <p class="count-text">Videos</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="counter">
+        <!-- <i class="fa fa-bug fa-2x"></i> -->
+        <h2
+          class="timer count-title count-number"
+          data-to="157"
+          data-speed="1500"
+        >
+          {{ real.length }}
+        </h2>
+        <p class="count-text">Real</p>
+      </div>
+    </div>
+  </div>
+  <!-- <button (click)="putData()">Data</button> -->
+</div>

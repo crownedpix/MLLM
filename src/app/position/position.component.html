@@ -1,0 +1,77 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/">Home</a>
+      <a class="p-2 link-secondary" href="/spl">S Home</a>
+      <!-- <a class="p-2 link-secondary" href="/addactor">Add More</a> -->
+
+      <!-- <a class="p-2 link-secondary" href="/add">Add Movies</a>
+      <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<div id="rs-team" class="rs-team fullwidth-team pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">Search</div>
+      <div class="col-md-10 searchInput">
+        <input type="text" [(ngModel)]="searchText" />
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-lg-2 col-md-6" *ngFor="let movie of pos | filterData: [searchText, 'name'] | paginate: { itemsPerPage: totalItems, currentPage: p }; let i = index" (click)="loadPopup(i)">
+        <div class="team-item">
+          <div
+            class="team-img"
+            style="background-image: url({{hostIP}}:8080/{{movie.image}})"
+
+          >
+            <div class="ribbon-wrapper" *ngIf="movie.done">
+              <div class="ribbon">Done</div>
+            </div>
+            <h4 class="team-name">{{ movie.name }}</h4>
+            <!-- <span class="heartBG"><span class="heart" *ngIf="movie.sex == 'F'"></span> {{ movie.count }}</span> -->
+            <!-- <div class="normal-text">
+              <h4 class="team-name">{{ movie.name }}</h4>
+              <span class="subtitle"
+                >{{ movie.BMI }}
+                <span *ngIf="movie.sex == 'F'">
+                  ,Hair {{ movie.hairColor }} , Height {{ movie.Height }}, Size
+                  {{ movie.cups }}, {{ movie.size }}, {{ movie.mod }}</span
+                >
+                <span *ngIf="movie.sex == 'M'"
+                  >Hair {{ movie.hairColor }} , Height {{ movie.Height }},
+                  {{ movie.size }}, {{ movie.mod }}</span
+                >
+              </span>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <!-- .container-fullwidth -->
+</div>
+<div class="overParent" *ngIf="showPopup">
+  <div class="overLaybox">
+    <h3>{{title}}</h3>
+    <span (click)="closePopup()" class="close">X</span>
+    <img src="{{hostIP}}:8080/{{currImg}}" width="100%"  >
+  </div>
+</div>

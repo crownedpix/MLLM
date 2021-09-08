@@ -1,0 +1,249 @@
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="/actors/all/1">Actors</a>
+      <a class="p-2 link-secondary" href="/spl">Home</a>
+      <a class="p-2 link-secondary" href="/movies/all/1">Movies</a>
+      <!-- <a class="p-2 link-secondary" href="/add">Add Movies</a>
+      <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="myForm">
+      <h2>Add Movie</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="first">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              formControlName="name"
+            />
+          </div>
+        </div>
+        <!--  col-md-6   -->
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              name="type"
+              formControlName="type"
+              id="type"
+            />
+          </div>
+        </div>
+        <!--  col-md-6   -->
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="last">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              placeholder=""
+              name="desc"
+              formControlName="desc"
+              id="desc"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="company">Video URL</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              name="video"
+              formControlName="video"
+            />
+          </div>
+        </div>
+        <!--  col-md-6   -->
+
+        <!--  col-md-6   -->
+      </div>
+      <!--  row   -->
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="email">Group</label>
+            <select
+              name="group"
+              id="group"
+              class="form-control"
+              formControlName="group"
+            >
+            <option value="{{sz.type}}" *ngFor="let sz of group">{{sz.type}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="email">Cream Time</label>
+            <input
+              type="email"
+              class="form-control"
+              name="creamtime"
+              id="creamtime"
+              formControlName="creamtime"
+            />
+          </div>
+        </div>
+        <!--  col-md-6   -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="email">Cream</label>
+            <select
+              name="cream"
+              id="cream"
+              class="form-control"
+              formControlName="cream"
+            >
+              <option value="false">False</option>
+              <option value="true">True</option>
+            </select>
+          </div>
+        </div>
+
+        <!--  col-md-6   -->
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="phone">Image Location Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="imageCount"
+              formControlName="loc"
+              id="loc"
+              placeholder="1"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="phone">Image Count</label>
+            <input
+              type="number"
+              class="form-control"
+              name="imageCount"
+              formControlName="imageCount"
+              id="imageCount"
+              placeholder="1"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="iform">Image Format</label>
+            <select
+              name="iform"
+              id="iform"
+              class="form-control"
+              formControlName="iform"
+            >
+              <option value=".png">PNG</option>
+              <option value=".jpg">JPG</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--  row   -->
+      <!-- <div class="categoryOption row">
+        <div class="form-check col-md-4" let *ngFor="let control of categoryArray.controls; let i = index">
+          <input
+            type="checkbox"
+            [formControl]="control"
+            id="flexCheckChecked{{i}}"
+            class="form-check-input"
+            (change)="selectCategories()"
+          />
+          <label class="form-check-label" for="flexCheckChecked{{i}}">
+            {{categories[i].name}}
+          </label>
+        </div>
+      </div> -->
+
+
+      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    </form>
+    <!-- {{ myForm.value | json }} -->
+  </div>
+  <div class="col-md-6">
+
+    <div>
+      <label class="form-check-label">Categories</label>
+      <ng-multiselect-dropdown
+    [placeholder]="'Select Categories'"
+    [settings]="categorySettings"
+    [data]="categories"
+    [(ngModel)]="selectedCategories"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    >
+    </ng-multiselect-dropdown>
+    </div>
+
+    <div>
+      <label class="form-check-label">Females</label>
+      <ng-multiselect-dropdown
+    [placeholder]="'Select Categories'"
+    [settings]="femaleSettings"
+    [data]="females"
+    [(ngModel)]="selectedFems"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    >
+    </ng-multiselect-dropdown>
+    </div>
+
+    <div>
+      <label class="form-check-label">Males</label>
+      <ng-multiselect-dropdown
+    [placeholder]="'Select Categories'"
+    [settings]="femaleSettings"
+    [data]="males"
+    [(ngModel)]="selectedMens"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    >
+    </ng-multiselect-dropdown>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="addJSON()">Add Data</button>
+    <br>
+    Total {{currentMovies.length}}
+    <!-- <textarea type="text" class="splTA" value="{{currentMovies[currentMovies.length-1] | json}}" style="width: 100%; height: 400px;"></textarea> -->
+
+  </div>
+</div>
+<div class="record">
+  <p>{{currentMovies[currentMovies.length-1].name | json}}</p>
+  <p>{{currentMovies[currentMovies.length-1].creamtime | json}}</p>
+  <p *ngIf="showError" style="background-color: rgb(72, 139, 4); color: #ffffff;">{{errorMessage}}</p>
+</div>
+</div>

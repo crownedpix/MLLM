@@ -1,0 +1,110 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <!-- <a class="p-2 link-secondary" href="/actors/all">Actors</a> -->
+      <a class="p-2 link-secondary" href="/">Home</a>
+      <a class="p-2 link-secondary" href="/youadd">Add Videos</a>
+      <!-- <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="#">Culture</a>
+      <a class="p-2 link-secondary" href="#">Business</a>
+      <a class="p-2 link-secondary" href="#">Politics</a>
+      <a class="p-2 link-secondary" href="#">Opinion</a>
+      <a class="p-2 link-secondary" href="#">Science</a>
+      <a class="p-2 link-secondary" href="#">Health</a>
+      <a class="p-2 link-secondary" href="#">Style</a>
+      <a class="p-2 link-secondary" href="#">Travel</a> -->
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- <div class="card-body">
+                <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+            </div> -->
+        <div class="table-responsive">
+          <table class="table no-wrap user-table mb-0">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="border-0 text-uppercase font-medium pl-4"
+                >
+                  #
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Image
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Name
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Author
+                </th>
+                <!-- <th scope="col" class="border-0 text-uppercase font-medium">
+                  Female
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Male
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Crm
+                </th> -->
+                <th
+                  scope="col"
+                  class="border-0 text-uppercase font-medium"
+                  width="300"
+                >
+                  Category
+                </th>
+                <th scope="col" class="border-0 text-uppercase font-medium">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of movies | paginate: { itemsPerPage: totalItems, currentPage: p }" >
+                <td class="pl-4">{{ movie.id }}</td>
+                <td>
+                  <img
+                    class="img-fluid"
+                    src="{{movie.img}}"
+                    width="200px"
+                    alt="{{ movie.id }}"
+                  />
+                </td>
+                <td>
+                  <h5 class="font-medium mb-0">{{ movie.name }}</h5>
+
+                </td>
+                <td>
+                  <h5 class="font-medium mb-0">{{ movie.author }}</h5>
+
+                </td>
+
+                <td>
+                  <a
+                    class="category"
+                    *ngFor="let cat of movie.category"
+                    href="/movies/{{ cat.id }}/1"
+                    >{{ cat.name }}</a>
+                </td>
+                <td>
+                  <a href="/yview/{{ movie.id }}"><i class="fa fa-eye"></i> </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
